@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Simpsonfont';
+  src: url('../public/fonts/Simpsonfont.otf') format('truetype'); /* Ajusta la ruta según la ubicación y tipo de fuente */
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: #39559f;
+  font-family: 'Simpsonfont', sans-serif;
 }
 
 .card{
