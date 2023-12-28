@@ -12,19 +12,24 @@ function App() {
     consultarAPI();
   }, []);
 
-  const consultarAPI = async() =>{
-    const respuesta = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes');
-    const dato = await respuesta.json();
-    console.log(dato);
-    console.log(respuesta);
-    setPersonaje(dato[0]);
-  }
+  const consultarAPI = async () => {
+    try {
+      const respuesta = await fetch(
+        "https://thesimpsonsquoteapi.glitch.me/quotes"
+      );
+      const dato = await respuesta.json();
+      console.log(dato);
+      setPersonaje(dato[0]);
+    } catch (error) {
+      console.log('Hubo un error intente más tarde', error);
+    }
+  };
 
   return (
     <>
       <Container className="my-5 text-center">
         <img src={logo} alt="Logo de los simpsons" className="img-fluid" />
-        <Frase></Frase>
+        <Frase personaje={personaje}></Frase>
         <Button className="btnFrase">Obtener Frase</Button>
       </Container>
     </>
